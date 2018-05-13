@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<meta name="viewport" content="width:device-width, initial-scale=1, user-scalable=no">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/emoji/lib/css/emoji.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/css/styles.css">
+<body class="chat">
+
+<div class="chat__sidebar">
+	<h3>People</h3>
+	<div id="users"></div>
+</div>
+
+<div class="chat__main">
+<ol id="messages" class="chat__messages"></ol>
+
+	<div class="chat__footer">
+		<form id="message-form">
+		<input type="text" name="message" placeholder="type your message" autofocus autocomplete="false">
+			<button>Send</button>
+		</form>
+
+		<button id="send-location">Send Location</button>
+	</div>
+</div>
+	
+	
+	<script src="/js/libs/jquery-3.3.1.min.js"></script>
+	<script src="/emoji/lib/js/config.js"></script>
+	<script src="/emoji/lib/js/util.js"></script>
+	<script src="/emoji/lib/js/jquery.emojiarea.js"></script>
+	<script src="/emoji/lib/js/emoji-picker.js"></script>
+
+	
+	<script  id ="message-template"  type="text/template">
+		<li class="message">
+			<div class="message__title">
+				<h4>{{ from }}</h4>
+				<span>{{ createdAt }}</span>
+			</div>
+			<div class="message__body">
+				<p>{{ text }}</p>
+			</div>	
+		</li>
+	</script>
+
+	<script id="location-message-template" type="text/template">
+		<li class="message">
+			<div class="message__title">
+				<h4>{{ from }}</h4>
+				<span>{{ createdAt }}</span>
+			</div>
+			<div class="message__body">
+				<a href="{{ text }}" target="_blank">My current location</a>
+			</div>	
+		</li>
+	</script>
+
+
+</body>
+
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/libs/moment.js"></script>
+	<script src="/js/chat.js"></script>
+	<script src = "/js/libs/moustache.js"></script>
+	<script src="/js/libs/deparam.js"></script>
+
+</html>
